@@ -12,7 +12,7 @@ myApp.config(function ($routeProvider) {
 
     .when('/forecast', {
         templateUrl: 'pages/forecast.html',
-        controller: 'forcastController'
+        controller: 'forecastController'
 
 
     })
@@ -23,7 +23,7 @@ myApp.config(function ($routeProvider) {
 
 myApp.service('cityService', function () {
     this.city = "Denver, CO";
-
+});
 
     myApp.controller('homeController', ['$scope', 'cityService',
 function ($scope, cityService) {
@@ -33,13 +33,11 @@ function ($scope, cityService) {
                     cityService.city = $scope.city;
 
                 })
-           })
+           
     }]);
 
 myApp.controller('forecastController', ['$scope', 'cityService', function ($scope, cityService) {
 
 $scope.city = cityService.city;
-}])
+}]);
 
-
-})
